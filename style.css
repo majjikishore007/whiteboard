@@ -1,24 +1,21 @@
 body {
-    padding: 30px;
     margin: 0;
     box-sizing: border-box;
     overflow: hidden;
-    background: #414141;
 }
-
-canvas {
-    box-shadow: -3px 2px 9px 6px black;
-    cursor: pointer;
-}
-
-
 .tools {
+    
     display: flex;
     justify-content: center;
     flex-direction: row;
     margin-top: 25px;
+    border: 1px solid black;
 }
 
+#canvas{
+    border: 5px solid yellow;
+    background:#222
+}
 
 .tools .color-field {
     height: 40px;
@@ -54,3 +51,46 @@ canvas {
     align-self: center;
     margin: 0 10px;
 }
+#field {
+	border: 10px solid gray;
+	height: 100%;
+	position: relative;
+}
+
+#tmp_canvas {
+    background:transparent;
+	position: absolute;
+	left: 0px; right: 0;
+	bottom: 0; top: 75px;
+	cursor: crosshair;
+    border:3px solid purple;
+}
+.text{
+    text-align: center;
+    align-self: center;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    color: white;
+    background: #222;
+    font-weight: bold;
+    border: 2px solid white;
+} 
+
+.info {
+    visibility: hidden;
+    width: 80px;
+    background-color: rgba(0, 0, 0, 0.705);
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 2px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tool:hover .info {
+    visibility: visible;
+  }

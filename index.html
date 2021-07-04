@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,43 @@
     <link rel="stylesheet" href="style.css">
     <title>Sitar WhiteBoard</title>
 </head>
+
 <body>
+    <div class="tools">
+        <button onclick="undo_last()" type="button" class="button">Undo</button>
+        <button onclick="redo_last()" type="button" class="button">Redo</button>
+        <button onclick="clear_canvas()" type="button" class="button">Clear</button>
+        <button onclick="line()" type="button" class="button">line</button>
+        <button onclick="pencil()" type="button" class="button">pencil</button>
+        <button onclick="save_canvas()" type="button" class="button">Save</button>
+        <div onClick="change_color(this)" style="background: rgb(231, 226, 226);">
+            <div class="text">Erase</div>
+        </div>
+        <div class="tool">
+            <input class="button" onclick="change_bgcolor()" type="color" onchange="change_bgcolor(this)">
+            <span class="info">CanvasFill</span>
+        </div>
+        <div onClick="change_color(this)" class="color-field" style="background: red;"></div>
+        <div onClick="change_color(this)" class="color-field" style="background: blue;"></div>
+        <div onClick="change_color(this)" class="color-field" style="background: yellow;"></div>
+        <div onClick="change_color(this)" class="color-field" style="background: green;"></div>
+        <div class="tool">
+            <input oninput="draw_color = this.value" type="color" class="color-picker">
+    <span class="info">Pick Color</span>
+    </div>
+    <!-- <input oninput="draw_color = this.value" type="color" class="color-picker"> -->
+    <!-- <input oninput="draw_width = this.value" type="range" min="1" max="100" class="pen-range "> -->
+    <div class="tool">
+        <input oninput="draw_width = this.value" type="range" min="1" max="100" value="5" class="pen-range">
+        <span class="info">Pencil Size</span>
+    </div>
+    </div>
     <div class="field">
         <canvas id="canvas"></canvas>
-        <div class="tools">
-            <button onclick="undo_last()" type="button" class="button">Undo</button>
-            <button onclick="clear_canvas()" type="button" class="button">Clear</button>
-
-            <div onClick="change_color(this)" class="color-field" style="background: red;" ></div>
-            <div onClick="change_color(this)" class="color-field" style="background: blue;" ></div>
-            <div onClick="change_color(this)" class="color-field" style="background: yellow;" ></div>
-            <div onClick="change_color(this)" class="color-field" style="background: green;" ></div>
-
-            <input oninput="draw_color = this.value" type="color" class="color-picker">
-            <input oninput="draw_width = this.value" type="range" min="1" max="100" class="pen-range ">
-        </div>
     </div>
     <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
 </body>
+
 </html>
