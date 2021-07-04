@@ -167,7 +167,9 @@ function line() {
     tmp_ctx.closePath();
   };
 }
-function change_bgcolor(element){
+function change_bgcolor(element) {
+  var eraser = document.querySelector('.erase');
+  eraser.style.background = element.value;
     ctx.fillStyle = element.value;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
