@@ -5,6 +5,7 @@ body{
    flex-direction:row;
 }
 .tools{
+  margin-top: 40px;
   margin-left: 20px;
   width:50px;
   padding: 20px;
@@ -68,5 +69,4 @@ input[type=range] {
   background-size: 50px;
   position: absolute;
   z-index: -1;
-   border: 1px solid rgb(184, 53, 53);
 }
