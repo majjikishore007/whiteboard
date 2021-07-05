@@ -17,25 +17,25 @@
             <option value="rect">Rectangle</option>
             <option value="pencil">pencil</option>
             </select>
-            
-            
             <div class="opts">
-                <button id="line"><img src="https://img.icons8.com/ios-filled/50/000000/line.png" /></button>
+                <button id="line"><img src="https://img.icons8.com/ios-filled/50/000000/line.png "
+                        style="width:35px; height:35px" /></button>
                 <button id="rect"><img
-                        src="https://img.icons8.com/fluent-systems-regular/50/000000/rounded-rectangle-stroked.png" />
+                        src="https://img.icons8.com/fluent-systems-regular/50/000000/rounded-rectangle-stroked.png" style="width:35px; height:35px"  />
                 </button>
-                <button id="pencil"><img src="https://img.icons8.com/ios/50/000000/pencil--v2.png" /></button>
+                <button id="pencil"><img src="https://img.icons8.com/ios/50/000000/pencil--v2.png"
+                        style="width:35px; height:35px" /></button>
             </div>
 
         <div class="tool">
             <button onclick="undo_last()" type="button" class="button">
-                <img src="https://img.icons8.com/cute-clipart/64/000000/undo.png" /></button>
+                <img src="https://img.icons8.com/cute-clipart/64/000000/undo.png" style="width:35px; height:35px" /></button>
             <button onclick="clear_canvas()" type="button" class="button"><img
-                    src="https://img.icons8.com/color/48/000000/trash--v2.png" /></button>
+                    src="https://img.icons8.com/color/48/000000/trash--v2.png" style="width:35px; height:35px"/></button>
             <button onclick="save_canvas()" type="button" class="button"><img
-                    src="https://img.icons8.com/nolan/64/save-all.png" /></button>
+                    src="https://img.icons8.com/nolan/64/save-all.png"  style="width:35px; height:35px"/></button>
             <div class="erase" id="erase" style="color: white;">
-                <img src="https://img.icons8.com/ultraviolet/48/000000/erase.png" />
+                <img src="https://img.icons8.com/ultraviolet/48/000000/erase.png" style="width:35px; height:35px" />
             </div>
             
             
@@ -45,21 +45,27 @@
             </div>
             <div class="color-tool">
                 <input onclick="change_bgcolor()" onchange="change_bgcolor(this)" type="color" class="color-picker">
+                <div class="hide">
+                    Background fill
+                </div>
             </div>
-            <div onClick="change_color(this)" class="color-field" style="color:red; font-size: 40px;;"><i
+            <div onClick="change_color(this)" class="color-field" style="color:red; font-size: 35px;;"><i
                     class="ri-ball-pen-fill"></i>
             </div>
-            <div onClick="change_color(this)" class="color-field" style="color:yellow; font-size: 40px;;"><i
+            <div onClick="change_color(this)" class="color-field" style="color:yellow; font-size: 35px;;"><i
                     class="ri-ball-pen-fill"></i>
             </div>
-            <div onClick="change_color(this)" class="color-field" style="color:green; font-size: 40px;;"><i
+            <div onClick="change_color(this)" class="color-field" style="color:green; font-size: 35px;;"><i
                     class="ri-ball-pen-fill"></i>
             </div>
-            <div onClick="change_color(this)" class="color-field" style="color:blue; font-size: 40px;;"><i
+            <div onClick="change_color(this)" class="color-field" style="color:blue; font-size: 35px;;"><i
                     class="ri-ball-pen-fill"></i>
         </div>
         <div class="color-tool">
             <input oninput="draw_color = this.value" type="color" class="color-picker">
+            <div class="hide">
+                Pen color picker
+            </div>
         </div>
         <div class="tool">
             <input oninput=" draw_width=this.value" type="range" min="1" max="100" value="5" class="pen-range">

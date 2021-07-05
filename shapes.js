@@ -38,13 +38,15 @@ function init() {
     alert("Error: I cannot create a new canvas element!");
     return;
   }
-
+  // console.log(ww);
   var ww = window.innerWidth;
   var wh = window.innerHeight;
-  canvaso.width = ww - 80;
-  canvaso.height = wh - 60;
-  canvasBg.width = ww-20;
-  canvasBg.height = wh-60;
+    console.log(ww);
+    console.log(wh);
+  canvaso.width = 1200;
+  canvaso.height =700;
+  canvasBg.width =  1200;
+  canvasBg.height = 700;
   canvas.id = "imageTemp";
   canvas.width = canvaso.width;
   canvas.height = canvaso.height;
