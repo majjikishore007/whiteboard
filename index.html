@@ -5,57 +5,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     
+=======
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="shapes.css">
+>>>>>>> upstream/master
     <title>Sitar WhiteBoard</title>
 </head>
-
+        
 <body>
-    <div class="board">
-        <div class="vert-toolbar">
-            <div class="tools">
-                <button onclick="undo_last()" type="button" class="button"><i class="ri-arrow-go-back-line"></i></button>
-                <button onclick="redo_last()" type="button" class="button"><i class="ri-arrow-go-forward-line"></i></button>
-                <button onclick="clear_canvas()" type="button" class="button"><i class="ri-delete-bin-fill"></i></button>
-                <button onclick="line()" type="button" class="button"><i class="ri-edit-fill"></i></button>
-                <button onclick="pencil()" type="button" class="button"><i class="ri-ball-pen-fill"></i></button>
-                <button onclick="save_canvas()" type="button" class="button"><i class="ri-save-line"></i></button>
-                <button onclick="change_color(this)" type="button" style="background: #803c3c;"" class="button erase"><i class="ri-eraser-line"></i></button>
-                <input class="button" onclick="change_bgcolor()" type="color" onchange="change_bgcolor(this)">
-                <input oninput="draw_color = this.value" type="color" class="color-picker">
-                <input oninput="draw_width = this.value" type="range" min="1" max="100" value="5" class="pen-range">
-                <!-- <div class="erase" onClick="change_color(this)" style="background: black;">
-                    <div class="text"><i class="ri-eraser-line"></i></div>
-                </div> -->
-                <!-- <div class="tool">
-                    <input class="button" onclick="change_bgcolor()" type="color" onchange="change_bgcolor(this)">
-                    <span class="info">CanvasFill</span>
-                </div> -->
-                <div onClick="change_color(this)" class="color-field" style="background: red;"></div>
-                <div onClick="change_color(this)" class="color-field" style="background: blue;"></div>
-                <div onClick="change_color(this)" class="color-field" style="background: yellow;"></div>
-                <div onClick="change_color(this)" class="color-field" style="background: green;"></div>
-                <!-- <div class="tool">
-                    <input oninput="draw_color = this.value" type="color" class="color-picker">
-            <span class="info">Pick Color</span>
-            </div> -->
-            <!-- <input oninput="draw_color = this.value" type="color" class="color-picker"> -->
-            <!-- <input oninput="draw_width = this.value" type="range" min="1" max="100" class="pen-range "> -->
-            <!-- <div class="tool">
-                <input oninput="draw_width = this.value" type="range" min="1" max="100" value="5" class="pen-range">
-                <span class="info">Pencil Size</span>
-            </div> -->
+    <div class="tools">
+        <select style="display: none" id="dtool">
+            <option value="line">Line</option>
+            <option value="rect">Rectangle</option>
+            <option value="pencil">pencil</option>
+            </select>
+            <div class="opts">
+                <button id="line"><img src="https://img.icons8.com/ios-filled/50/000000/line.png "
+                        style="width:35px; height:35px" /></button>
+                <button id="rect"><img
+                        src="https://img.icons8.com/fluent-systems-regular/50/000000/rounded-rectangle-stroked.png" style="width:35px; height:35px"  />
+                </button>
+                <button id="pencil"><img src="https://img.icons8.com/ios/50/000000/pencil--v2.png"
+                        style="width:35px; height:35px" /></button>
+            </div>
+
+        <div class="tool">
+            <button onclick="undo_last()" type="button" class="button">
+                <img src="https://img.icons8.com/cute-clipart/64/000000/undo.png" style="width:35px; height:35px" /></button>
+            <button onclick="clear_canvas()" type="button" class="button"><img
+                    src="https://img.icons8.com/color/48/000000/trash--v2.png" style="width:35px; height:35px"/></button>
+            <button onclick="save_canvas()" type="button" class="button"><img
+                    src="https://img.icons8.com/nolan/64/save-all.png"  style="width:35px; height:35px"/></button>
+            <div class="erase" id="erase" style="color: white;">
+                <img src="https://img.icons8.com/ultraviolet/48/000000/erase.png" style="width:35px; height:35px" />
+            </div>
+            
+            
+            <!-- <input class="button" onclick="change_bgcolor()" type="color" onchange="change_bgcolor(this)">
+                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="info">CanvasFill</span> -->
+            <img src="https://img.icons8.com/color-glass/48/000000/fill-color.png" />
+            </div>
+            <div class="color-tool">
+                <input onclick="change_bgcolor()" onchange="change_bgcolor(this)" type="color" class="color-picker">
+                <div class="hide">
+                    Background fill
+                </div>
+            </div>
+            <div onClick="change_color(this)" class="color-field" style="color:red; font-size: 35px;;"><i
+                    class="ri-ball-pen-fill"></i>
+            </div>
+            <div onClick="change_color(this)" class="color-field" style="color:yellow; font-size: 35px;;"><i
+                    class="ri-ball-pen-fill"></i>
+            </div>
+            <div onClick="change_color(this)" class="color-field" style="color:green; font-size: 35px;;"><i
+                    class="ri-ball-pen-fill"></i>
+            </div>
+            <div onClick="change_color(this)" class="color-field" style="color:blue; font-size: 35px;;"><i
+                    class="ri-ball-pen-fill"></i>
+        </div>
+        <div class="color-tool">
+            <input oninput="draw_color = this.value" type="color" class="color-picker">
+            <div class="hide">
+                Pen color picker
             </div>
         </div>
-        
-        <div class="field">
-            <canvas id="canvas"></canvas>
-        </div>
+        <div class="tool">
+            <input oninput=" draw_width=this.value" type="range" min="1" max="100" value="5" class="pen-range">
+            </div>
     </div>
-    <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
-    <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+    <div id="container">
+        <canvas id="canvasBg"></canvas>
+        <canvas id="imageView"></canvas>
+        <!-- <script src="index.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/g/filesaver.js" crossorigin="anonymous"></script>
+        <script src="./shapes.js"></script>
 </body>
 
 </html>

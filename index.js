@@ -4,11 +4,10 @@ canvas.height = 800;
 let ctx = canvas.getContext("2d");
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-let start_background_color = "black";
-let draw_color = "white";
+let start_background_color = "white";
+let draw_color = "black";
 let draw_width = "2";
 let is_drawing = false;
-
 let restore_array = [];
 let index = -1;
 
@@ -21,7 +20,6 @@ function pencil() {
   canvas.addEventListener("touchmove", draw, false);
   canvas.addEventListener("mousedown", start, false);
   canvas.addEventListener("mousemove", draw, false);
-
   canvas.addEventListener("touchend", stop, false);
   canvas.addEventListener("mouseup", stop, false);
   canvas.addEventListener("mouseout", stop, false);
@@ -159,7 +157,6 @@ function line() {
   var onPaint = function () {
     // Tmp canvas is always cleared up before drawing.
     tmp_ctx.clearRect(0, 0, tmp_canvas.width, tmp_canvas.height);
-
     tmp_ctx.beginPath();
     tmp_ctx.moveTo(start_mouse.x, start_mouse.y);
     tmp_ctx.lineTo(mouse.x, mouse.y);
