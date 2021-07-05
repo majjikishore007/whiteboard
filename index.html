@@ -5,15 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    
-=======
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="shapes.css">
->>>>>>> upstream/master
     <title>Sitar WhiteBoard</title>
+    
 </head>
         
 <body>
@@ -25,8 +20,8 @@
             </select>
             <div class="opts">
                 <button id="line"><img src="https://img.icons8.com/ios-filled/50/000000/line.png "
-                        style="width:35px; height:35px" /></button>
-                <button id="rect"><img
+                    style="width:35px; height:35px"/></button>
+                <button class="btn btn-primary" data-toggle="popover" data-content="Default popover" id="rect"><img
                         src="https://img.icons8.com/fluent-systems-regular/50/000000/rounded-rectangle-stroked.png" style="width:35px; height:35px"  />
                 </button>
                 <button id="pencil"><img src="https://img.icons8.com/ios/50/000000/pencil--v2.png"
@@ -40,42 +35,42 @@
                     src="https://img.icons8.com/color/48/000000/trash--v2.png" style="width:35px; height:35px"/></button>
             <button onclick="save_canvas()" type="button" class="button"><img
                     src="https://img.icons8.com/nolan/64/save-all.png"  style="width:35px; height:35px"/></button>
-            <div class="erase" id="erase" style="color: white;">
+            <button class="erase" id="erase" style="color: white;">
                 <img src="https://img.icons8.com/ultraviolet/48/000000/erase.png" style="width:35px; height:35px" />
-            </div>
-            
-            
+            </button>
+
+
             <!-- <input class="button" onclick="change_bgcolor()" type="color" onchange="change_bgcolor(this)">
-                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="info">CanvasFill</span> -->
-            <img src="https://img.icons8.com/color-glass/48/000000/fill-color.png" />
+            <span class="info">CanvasFill</span> -->
+            <button>
+                <img src="https://img.icons8.com/color-glass/48/000000/fill-color.png" />
+            </button>
+            
             </div>
-            <div class="color-tool">
+            <button class="color-tool">
                 <input onclick="change_bgcolor()" onchange="change_bgcolor(this)" type="color" class="color-picker">
-                <div class="hide">
-                    Background fill
-                </div>
-            </div>
-            <div onClick="change_color(this)" class="color-field" style="color:red; font-size: 35px;;"><i
+            </button>
+            <button onClick="change_color(this)" class="color-field" style="color:red; font-size: 35px;"><i
                     class="ri-ball-pen-fill"></i>
-            </div>
-            <div onClick="change_color(this)" class="color-field" style="color:yellow; font-size: 35px;;"><i
+            </button>
+            <button onClick="change_color(this)" class="color-field" style="color:yellow; font-size: 35px;;"><i
                     class="ri-ball-pen-fill"></i>
-            </div>
-            <div onClick="change_color(this)" class="color-field" style="color:green; font-size: 35px;;"><i
+            </button>
+            <button onClick="change_color(this)" class="color-field" style="color:green; font-size: 35px;;"><i
                     class="ri-ball-pen-fill"></i>
-            </div>
-            <div onClick="change_color(this)" class="color-field" style="color:blue; font-size: 35px;;"><i
+            </button>
+            <button onClick="change_color(this)" class="color-field" style="color:blue; font-size: 35px;;"><i
                     class="ri-ball-pen-fill"></i>
-        </div>
-        <div class="color-tool">
+            </button>
+        <button class="color-tool">
             <input oninput="draw_color = this.value" type="color" class="color-picker">
-            <div class="hide">
+            <!-- <div class="hide">
                 Pen color picker
-            </div>
-        </div>
-        <div class="tool">
+            </div> -->
+        </button>
+        <button class="tool">
             <input oninput=" draw_width=this.value" type="range" min="1" max="100" value="5" class="pen-range">
-            </div>
+        </button>
     </div>
     <div id="container">
         <canvas id="canvasBg"></canvas>
