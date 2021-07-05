@@ -1,36 +1,53 @@
 body{
-    width: 100%;
+
    height: 100vh;
    display:flex;
    flex-direction:row;
-   overflow: hidden;
 }
-.tools {
-    margin-left: 20px;
-     max-width: 64px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    margin-top: 25px;
-    border: 1px solid black;
+.tools{
+  margin-left: 20px;
+  width:50px;
+  padding: 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
 }
-.tools .color-field {
-    height: 40px;
-    min-height: 40px;
-    min-width: 40px;
-    cursor: pointer;
-    display: inline-block;
-    box-sizing: border-box;
-    border-radius: 50px;
-    border: 1px solid white;
-    margin: 0 15px;
+.tools button{
+  text-align:center;
+  padding:3px;
+  border:none;
+  background:none;
+}
+.tools p{
+  text-align:center;
+  width:100%;
+  
+}
+input[type=color] {
+  background:#CAD5E2;
+  width:50px;
+  height:50px;
+  border-radius: 50px;
+}
+input[type=range] {
+  position: relative;
+  left:0;
+  margin-top: 10px;
+  margin-right: 10px;
+  width:60px;
+}
+.tools p label{
+  width:10px;
+  padding: 10px;
 }
 #container {
     margin-left: 20px;
+  left: 30px;
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 100%;
   max-width: 900px;
+  cursor: pointer;
 }
 #imageView {
   border: 1px solid #000;

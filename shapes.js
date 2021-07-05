@@ -2,6 +2,7 @@ var canvas, context, canvaso, contexto;
 // The active tool instance.
 var tool;
 var tool_default = "pencil";
+var ebg = "white";
 let start_background_color = "white";
 let draw_color = "black";
 let draw_width = "1";
@@ -40,7 +41,7 @@ function init() {
 
   var ww = window.innerWidth;
   var wh = window.innerHeight;
-  canvaso.width = ww - 20;
+  canvaso.width = ww - 80;
   canvaso.height = wh - 60;
   canvasBg.width = ww-20;
   canvasBg.height = wh-60;
@@ -52,6 +53,19 @@ function init() {
   context = canvas.getContext("2d");
 
   // Get the tool select input.
+  var opts = document.querySelector(".opts");
+  console.log(opts);
+  opts.addEventListener("click", ev_tool_change,false)
+
+var eraser = document.querySelector('.erase');
+console.log(eraser);
+eraser.addEventListener("click", ev_tool_change, false);
+
+
+
+
+
+
   var tool_select = document.getElementById("dtool");
   if (!tool_select) {
     alert("Error: failed to get the dtool element!");
@@ -96,6 +110,7 @@ function clear_canvas() {
   index = -1;
 }
 
+
 function undo_last() {
   if (index <= 0) {
     let temp = restore_array;
@@ -112,10 +127,10 @@ function redo_last() {
  context.putImageData(restore_array[index], 0, 0);
 }
 function change_bgcolor(element) {
-  console.log(element.value);
-  var eraser = document.querySelector('.erase');
+  // console.log(element.value);
+  // var eraser = document.querySelector('.erase');
   
-    eraser.style.background = element.value;
+    ebg = element.value;
     contextBg.fillStyle = element.value;
     contextBg.clearRect(0, 0, canvas.width, canvas.height);
   contextBg.fillRect(0, 0, canvas.width, canvas.height);
@@ -133,7 +148,7 @@ function save_canvas() {
 }
 
 function change_color(element) {
-  draw_color = element.style.background;
+  draw_color = element.style.color;
 }
 
 // The general-purpose event handler. This function just determines the mouse
@@ -158,8 +173,9 @@ function ev_canvas(ev) {
 
 // The event handler for any changes made to the tool selector.
 function ev_tool_change(ev) {
-  if (tools[this.value]) {
-    tool = new tools[this.value]();
+  console.log(ev.target.parentNode.id);
+  if (tools[ev.target.parentNode.id]) {
+    tool = new tools[ev.target.parentNode.id]();
   }
 }
 
@@ -173,6 +189,47 @@ function img_update() {
 
 // This object holds the implementation of each drawing tool.
 var tools = {};
+
+tools.erase = function () {
+  var tool = this;
+  this.started = false;
+
+  // This is called when you start holding down the mouse button.
+  // This starts the pencil drawing.
+  this.mousedown = function (ev) {
+    context.beginPath();
+    context.moveTo(ev._x, ev._y);
+    tool.started = true;
+  };
+
+  // This function is called every time you move the mouse. Obviously, it only
+  // draws if the tool.started state is set to true (when you are holding down
+  // the mouse button).
+  this.mousemove = function (ev) {
+    if (tool.started) {
+      context.lineTo(ev._x, ev._y);
+      context.strokeStyle = ebg;
+      context.lineWidth = draw_width;
+      context.lineCap = "round";
+      context.lineJoin = "round";
+       contextBg.lineCap = "round";
+      contextBg.lineJoin = "round";
+      context.stroke();
+    }
+  };
+
+  // This is called when you release the mouse button.
+  this.mouseup = function (ev) {
+    if (tool.started) {
+      tool.mousemove(ev);
+      tool.started = false;
+      img_update();
+    }
+  };
+};
+
+
+
 
 // The drawing pencil.
 tools.pencil = function () {
