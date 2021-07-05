@@ -212,10 +212,12 @@ tools.erase = function () {
       context.lineTo(ev._x, ev._y);
       context.strokeStyle = ebg;
       context.lineWidth = draw_width;
-      context.lineCap = "round";
-      context.lineJoin = "round";
-       contextBg.lineCap = "round";
-      contextBg.lineJoin = "round";
+      // context.lineCap = "round";
+      // context.lineJoin = "round";
+      //  contextBg.lineCap = "round";
+      // contextBg.lineJoin = "round";
+       contextBg.lineJoin = contextBg.lineCap = 'round';
+      context.lineJoin = context.lineCap = 'round';
       context.stroke();
     }
   };
@@ -254,10 +256,12 @@ tools.pencil = function () {
       context.lineTo(ev._x, ev._y);
       context.strokeStyle = draw_color;
       context.lineWidth = draw_width;
-      context.lineCap = "round";
-      context.lineJoin = "round";
-       contextBg.lineCap = "round";
-      contextBg.lineJoin = "round";
+      // context.lineCap = "round";
+      // context.lineJoin = "round";
+      //  contextBg.lineCap = "round";
+      // contextBg.lineJoin = "round";
+      contextBg.lineJoin = contextBg.lineCap = 'round';
+      context.lineJoin = context.lineCap = 'round';
       context.stroke();
     }
   };
@@ -331,10 +335,8 @@ tools.line = function () {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.strokeStyle = draw_color;
     context.lineWidth = draw_width;
-    context.lineCap = "round";
-    context.lineJoin = "round";
-     contextBg.lineCap = "round";
-      contextBg.lineJoin = "round";
+     contextBg.lineJoin = contextBg.lineCap = 'round';
+      context.lineJoin = context.lineCap = 'round';
     context.beginPath();
     context.moveTo(tool.x0, tool.y0);
     context.lineTo(ev._x, ev._y);
