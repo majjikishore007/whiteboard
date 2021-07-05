@@ -12,10 +12,10 @@ body {
     border: 1px solid black;
 }
 
-#canvas{
+/* #canvas{
     border: 5px solid yellow;
     background:#222
-}
+} */
 
 .tools .color-field {
     height: 40px;
@@ -57,14 +57,14 @@ body {
 	position: relative;
 }
 
-#tmp_canvas {
+/* #tmp_canvas {
     background:transparent;
 	position: absolute;
 	left: 0px; right: 0;
 	bottom: 0; top: 75px;
 	cursor: crosshair;
     border:3px solid purple;
-}
+} */
 .text{
     text-align: center;
     align-self: center;
