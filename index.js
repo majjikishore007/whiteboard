@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight - 2;
+canvas.width = 1500;
+canvas.height = 800;
 let ctx = canvas.getContext("2d");
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -165,10 +165,10 @@ function line() {
   };
 }
 function change_bgcolor(element) {
-  var eraser = document.querySelector('.erase');
+  eraser = document.querySelector('.erase');
   eraser.style.background = element.value;
     ctx.fillStyle = element.value;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 

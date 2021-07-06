@@ -32,10 +32,37 @@ body{
   height:500px;
 }
 .tools button{
+    margin: 2px auto;
+    width: 100%;
   text-align:center;
-  padding:3px;
+  padding: 3px;
   border:none;
-  background:none;
+  background: none;
+}
+
+.tools button:before {
+  content: '';
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; */
+  border-radius: 50%;
+  background: #8D3DAF;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+.tools button:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #8D3DAF;
+}
+
+.tools button:hover {
+  color: #8D3DAF;
+  box-shadow: 0 0 5px 5px #8D3DAF;
+  text-shadow: 0 0 5px #8D3DAF;
 }
 .tools p{
   text-align:center;
@@ -62,8 +89,8 @@ input[type=range] {
   position: relative;
   left:0;
   margin-top: 10px;
-  margin-right: 10px;
-  width:60px;
+  margin-right: 15px;
+  width: 45px;
 }
 .tools p label{
   width:10px;

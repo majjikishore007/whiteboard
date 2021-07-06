@@ -6,24 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="./popup.js">
     <link rel="stylesheet" href="shapes.css">
     <title>Sitar WhiteBoard</title>
+
 </head>
 
 <body>
-    <div class="bs-example">
-        <button type="button" class="btn btn-primary" data-toggle="popover" title="Popover title"
-            data-content="Default popover">Popover</button>
-        <button type="button" class="btn btn-success" data-toggle="popover" title="Popover title"
-            data-content="Another popover">Another popover</button>
-        <button type="button" class="btn btn-info" data-toggle="popover" title="Popover title"
-            data-content="A larger popover to demonstrate the max-width of the Bootstrap popover.">Large
-            popover</button>
-        <button type="button" class="btn btn-warning" data-toggle="popover" title="Popover title"
-            data-content="The last popover!">Last popover</button>
-    </div>
-
     <div class="tools">
         <select style="display: none" id="dtool">
             <option value="line">Line</option>
@@ -33,7 +21,7 @@
         <div class="opts">
             <button id="line"><img src="https://img.icons8.com/ios-filled/50/000000/line.png "
                     style="width:35px; height:35px" /></button>
-            <button id="rect"><img
+            <button class="btn btn-primary" data-toggle="popover" data-content="Default popover" id="rect"><img
                     src="https://img.icons8.com/fluent-systems-regular/50/000000/rounded-rectangle-stroked.png"
                     style="width:35px; height:35px" />
             </button>
@@ -43,48 +31,49 @@
 
         <div class="tool">
             <button onclick="undo_last()" type="button" class="button">
-                <img src="https://img.icons8.com/cute-clipart/64/000000/undo.png" style="width:35px; height:35px" /></button>
+                <img src="https://img.icons8.com/cute-clipart/64/000000/undo.png"
+                    style="width:35px; height:35px" /></button>
             <button onclick="clear_canvas()" type="button" class="button"><img
                     src="https://img.icons8.com/color/48/000000/trash--v2.png"
                     style="width:35px; height:35px" /></button>
             <button onclick="save_canvas()" type="button" class="button"><img
                     src="https://img.icons8.com/nolan/64/save-all.png" style="width:35px; height:35px" /></button>
-            <div class="erase" id="erase" style="color: white;">
+            <button class="erase" id="erase" style="color: white;">
                 <img src="https://img.icons8.com/ultraviolet/48/000000/erase.png" style="width:35px; height:35px" />
-            </div>
+            </button>
 
 
             <!-- <input class="button" onclick="change_bgcolor()" type="color" onchange="change_bgcolor(this)">
-                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="info">CanvasFill</span> -->
-            <img src="https://img.icons8.com/color-glass/48/000000/fill-color.png" />
+            <span class="info">CanvasFill</span> -->
+            <button>
+                <img src="https://img.icons8.com/color-glass/48/000000/fill-color.png" />
+            </button>
+
         </div>
-        <div class="color-tool">
+        <button class="color-tool">
             <input onclick="change_bgcolor()" onchange="change_bgcolor(this)" type="color" class="color-picker">
-            <div class="hide">
-                Background fill
-            </div>
-        </div>
-        <div onClick="change_color(this)" class="color-field" style="color:red; font-size: 35px;;"><i
+        </button>
+        <button onClick="change_color(this)" class="color-field" style="color:red; font-size: 35px;"><i
                 class="ri-ball-pen-fill"></i>
-        </div>
-        <div onClick="change_color(this)" class="color-field" style="color:yellow; font-size: 35px;;"><i
+        </button>
+        <button onClick="change_color(this)" class="color-field" style="color:yellow; font-size: 35px;;"><i
                 class="ri-ball-pen-fill"></i>
-        </div>
-        <div onClick="change_color(this)" class="color-field" style="color:green; font-size: 35px;;"><i
+        </button>
+        <button onClick="change_color(this)" class="color-field" style="color:green; font-size: 35px;;"><i
                 class="ri-ball-pen-fill"></i>
-        </div>
-        <div onClick="change_color(this)" class="color-field" style="color:blue; font-size: 35px;;"><i
+        </button>
+        <button onClick="change_color(this)" class="color-field" style="color:blue; font-size: 35px;;"><i
                 class="ri-ball-pen-fill"></i>
-        </div>
-        <div class="color-tool">
+        </button>
+        <button class="color-tool">
             <input oninput="draw_color = this.value" type="color" class="color-picker">
-            <div class="hide">
+            <!-- <div class="hide">
                 Pen color picker
-            </div>
-        </div>
-        <div class="tool">
+            </div> -->
+        </button>
+        <button class="tool">
             <input oninput=" draw_width=this.value" type="range" min="1" max="100" value="5" class="pen-range">
-        </div>
+        </button>
     </div>
     <div id="container">
         <canvas id="canvasBg"></canvas>
@@ -93,10 +82,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
         <script src="http://cdn.jsdelivr.net/g/filesaver.js" crossorigin="anonymous"></script>
         <script src="./shapes.js"></script>
-        <script src="./popup.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
