@@ -6,6 +6,7 @@ var ebg = "white";
 let start_background_color = "white";
 let draw_color = "black";
 let draw_width = "1";
+let eraser_width = "1";
 let is_drawing = false;
 let restore_array = [];
 let index = -1;
@@ -105,7 +106,7 @@ function stop(e) {
   }
 function clear_canvas() {
   // contexto.fillStyle = start_background_color;
-  contextBg.clearRect(0, 0, canvas.width, canvas.height);
+  // contextBg.clearRect(0, 0, canvas.width, canvas.height);
   contexto.clearRect(0, 0, canvas.width, canvas.height);
   // contextBg.fillRect(0, 0, canvas.width, canvas.height);
   restore_array = [];
@@ -211,7 +212,7 @@ tools.erase = function () {
     if (tool.started) {
       context.lineTo(ev._x, ev._y);
       context.strokeStyle = ebg;
-      context.lineWidth = draw_width;
+      context.lineWidth = eraser_width;
       // context.lineCap = "round";
       // context.lineJoin = "round";
       //  contextBg.lineCap = "round";

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="shapes.css">
+    <link rel="shortcut icon" href="./THE_SITAR_TEAM.png" type="image/x-icon">
     <title>Sitar WhiteBoard</title>
 
 </head>
@@ -41,7 +42,9 @@
             <button class="erase" id="erase" style="color: white;">
                 <img src="https://img.icons8.com/ultraviolet/48/000000/erase.png" style="width:35px; height:35px" />
             </button>
-
+            <button class="tool">
+                <input oninput=" eraser_width=this.value" type="range" min="1" max="100" value="5" class="pen-range">
+            </button>
 
             <!-- <input class="button" onclick="change_bgcolor()" type="color" onchange="change_bgcolor(this)">
             <span class="info">CanvasFill</span> -->
